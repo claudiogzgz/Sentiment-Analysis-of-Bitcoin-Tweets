@@ -1,4 +1,4 @@
-# Sentiment-Analysis-of-Bitcoin-Tweets
+# Sentiment Analysis of Bitcoin Tweets
 Comprehensive sentiment analysis of Bitcoin-related tweets using multiple Natural Language Processing (NLP) techniques. From lexicon-based methods to deep learning and transformer models.
 
 
