@@ -17,30 +17,29 @@ The dataset includes 2,000 labelled tweets, split into 1,500 for training and 50
 
 
 ## Implemented Approaches
+1. Dictionary-Based Sentiment Analysis (VADER)
 
-1. Text Preprocessing
+Lexicon-based sentiment scoring using NLTK’s VADER to establish a strong baseline for sentiment polarity (positive, negative, neutral).
 
-Tweets are cleaned and normalized by:
-	•	Removing HTML tags, links, and Unicode artifacts
-	•	Lowercasing and tokenizing
-	•	Optionally applying stopword removal and lemmatization
+2. TF-IDF + Logistic Regression Classifier
 
-2. Dictionary-Based Sentiment Analysis (VADER)
+Tweets are vectorized using TF-IDF representations and classified with a Logistic Regression model for sentiment prediction.
 
-Lexicon-based sentiment scoring using NLTK’s VADER to establish a baseline.
+3. RNN Classifier with Custom (Learned) Embeddings
 
-3. TF-IDF + Logistic Regression
-	•	Transform text using TF-IDF vectorization
-	•	Train a Logistic Regression classifier for sentiment prediction
+An RNN model trained from scratch using learned embeddings. Includes validation split, early stopping, and regularization to prevent overfitting.
 
-4. RNN Classifiers
-	•	Custom Embeddings: RNN trained from scratch with learned embeddings
-	•	Pre-trained Embeddings: RNN initialized with GloVe vectors
-	•	Includes validation split and early stopping
+4. RNN Classifier with Pre-trained GloVe Embeddings
 
-5. Transformer Models
-	•	Apply pre-trained transformer models (e.g., DistilBERT) via Hugging Face pipelines
-	•	Optionally fine-tune a lightweight transformer for one epoch to evaluate performance improvements
+An RNN model initialized with GloVe pre-trained embeddings, allowing the network to leverage prior semantic knowledge and improve generalization.
+
+5. Hugging Face Transformer Pipeline (Pre-trained Model)
+
+Applies a pre-trained transformer sentiment model (e.g., DistilBERT) using the Hugging Face pipeline for zero-shot inference on tweets.
+
+6. Fine-tuned DistilBERT Transformer
+
+A DistilBERT model fine-tuned on the tweet dataset using the Hugging Face Trainer API. Inherits base transformer layers and adapts them via one-epoch fine-tuning to evaluate task-specific performance improvements.
 
 
  ## Evaluation
